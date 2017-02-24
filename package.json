@@ -1,13 +1,17 @@
 {
-  "name": "Sensible-Charts",
+  "name": "sensiblecharts",
   "version": "1.0.0",
   "description": "Charts OOP JavaScript. Powered by C3/D3",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/karma/bin/karma start"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/justingeeslin/sensible-charts.git"
+  },
   "author": "Justin Geeslin",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "c3": "^0.4.11",
     "extend": "file:../../jg/Documents/extend",
