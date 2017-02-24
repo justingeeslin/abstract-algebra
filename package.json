@@ -1,7 +1,7 @@
 {
-  "name": "innerview",
+  "name": "Sensible-Charts",
   "version": "1.0.0",
-  "description": "",
+  "description": "Charts OOP JavaScript. Powered by C3/D3",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/karma/bin/karma start"
@@ -9,7 +9,9 @@
   "author": "Justin Geeslin",
   "license": "ISC",
   "dependencies": {
-    "extend": "file:../extend"
+    "c3": "^0.4.11",
+    "extend": "file:../../jg/Documents/extend",
+    "jquery": "^3.1.1"
   },
   "devDependencies": {
     "browserify": "^14.1.0",

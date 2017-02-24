@@ -19,7 +19,7 @@ gulp.task('javascript', function () {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./*.js', ['javascript']);
+  gulp.watch('./js/*.js', ['javascript']);
 
 });
 
