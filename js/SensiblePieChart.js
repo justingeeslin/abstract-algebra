@@ -5,7 +5,7 @@ function SensiblePieChart( options ) {
 
   var defaults = {
     target: $(document.body),
-    data: ['Vistors', 100],
+    data: ['Visitors', 100],
     // data: {
     //   'root': [['Visitors', 100]],
     //   'Visitors': [['Mobile', 75],['Desktop', 24]],
