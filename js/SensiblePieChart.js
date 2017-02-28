@@ -1,3 +1,5 @@
+const $ = require('jquery');
+
 function SensiblePieChart( options ) {
   var self = this;
 
