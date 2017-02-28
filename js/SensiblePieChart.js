@@ -11,6 +11,7 @@ function SensiblePieChart( options ) {
     //   'Visitors': [['Mobile', 75],['Desktop', 24]],
     //   'Desktop': [['Windows', 75],['Mac', 24], ['Other', 1]]
     // },
+    colors: ['#FF0000', '#00FF00', '#0000FF']
   }
 
   var drillDownPath = ['root'];
@@ -24,6 +25,7 @@ function SensiblePieChart( options ) {
     data: {
       columns: [],
       type : 'pie',
+      colors: self.colors,
       onclick: function (d, i) {
         if (typeof self.data === 'object' && self.data.hasOwnProperty(d.id)) {
           console.log('Attempting to drill down to: ' + d.id);
@@ -56,6 +58,26 @@ function SensiblePieChart( options ) {
       unload: dataToUnload,
       columns: this.data[label]
     });
+
+    //Create a color object for C3
+    var newColors = {}
+    // Just cycle through the colors.
+    var currentColor = -1;
+    function nextColor() {
+      // if you go beyond the index...
+      if (self.colors[currentColor] === undefined ) {
+        // ...reset it to zero
+        currentColor = 0;
+      }
+      return self.colors[currentColor++];
+    }
+    // Get the keys of the data.
+    for( var i in this.data[label]) {
+      newColors[this.data[label][i][0]] = nextColor();
+    }
+
+    console.log('Setting colors like so:', newColors)
+    this.chart.data.colors(newColors)
 
     currentLayer = label;
   }
