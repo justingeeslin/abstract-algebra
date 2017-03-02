@@ -29,7 +29,7 @@ gulp.task('css', function () {
     .pipe(rename(function(path) {
 			path.extname = '.css';
 		}))
-		.pipe(gulp.dest('css/'));
+		.pipe(gulp.dest('dist/'));
 });
 
 gulp.task('servers', gulp.shell.task([
