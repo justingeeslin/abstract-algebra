@@ -9,7 +9,7 @@
   "author": "Justin Geeslin",
   "license": "ISC",
   "dependencies": {
-    "extend": "file:../extend"
+    "extend": "file:../../jg/Documents/extend"
   },
   "devDependencies": {
     "browserify": "^14.1.0",
