@@ -1,5 +1,7 @@
 var gulp = require('gulp');
 gulp.shell = require('gulp-shell');
+var sass = require('gulp-sass');
+var rename = require('gulp-rename');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
@@ -17,6 +19,17 @@ gulp.task('js', function () {
     .pipe(buffer())
     .on('error', gutil.log)
     .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('css', function () {
+	return gulp.src([
+		'css/*.scss',
+	])
+		.pipe(sass())
+    .pipe(rename(function(path) {
+			path.extname = '.css';
+		}))
+		.pipe(gulp.dest('css/'));
 });
 
 gulp.task('servers', gulp.shell.task([
