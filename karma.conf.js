@@ -16,9 +16,6 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'https://code.jquery.com/jquery-3.1.1.min.js',
-      'http://d3js.org/d3.v3.js',
-      'node_modules/c3/c3.js',
-      'node_modules/c3/c3.css',
 			'dist/app.js',
   		'tests/*.js'
     ],
@@ -55,7 +52,7 @@ module.exports = function(config) {
     browserConsoleLogOptions: {level: "error", format: "%b %T: %m", terminal: false},
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // start these browsers
