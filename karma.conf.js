@@ -52,7 +52,7 @@ module.exports = function(config) {
     browserConsoleLogOptions: {level: "error", format: "%b %T: %m", terminal: false},
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
 
     // start these browsers
