@@ -4,7 +4,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var gutil = require('gulp-util');
 
-gulp.task('javascript', function () {
+gulp.task('js', function () {
   // set up the browserify instance on a task basis
   var b = browserify({
     entries: './index.js',
@@ -19,8 +19,8 @@ gulp.task('javascript', function () {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./*.js', ['javascript']);
+  gulp.watch('./*.js', ['js']);
 
 });
 
-gulp.task('default', ['javascript','watch'])
+gulp.task('default', ['js','watch'])
