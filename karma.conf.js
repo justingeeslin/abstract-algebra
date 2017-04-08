@@ -10,13 +10,13 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'browserify'],
 
 
     // list of files / patterns to load in the browser
     files: [
       'https://code.jquery.com/jquery-3.1.1.min.js',
-			'dist/app.js',
+			'index.js',
   		'tests/*.js'
     ],
 
@@ -29,13 +29,25 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'index.js': ['browserify', 'coverage'],
+      'js/*.js' : 'coverage'
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['dots'],
+    reporters: [
+      'dots',
+      'coverage'
+    ],
+
+    coverageReporter: {
+      reporters: [
+        { type : 'lcov', dir : 'coverage/' },
+        { type : 'lcovonly', subdir : '.', file: 'lcov.info' }
+      ]
+    },
 
 
     // web server port
