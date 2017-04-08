@@ -10,7 +10,7 @@ var Segment = function( options ) {
     timeEnd: 0,
     interests: {
       interest1: 0.1,
-      interest2: 0.2,
+      interest2: 0.2
     }
   }
 
