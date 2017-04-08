@@ -16,7 +16,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'https://code.jquery.com/jquery-3.1.1.min.js',
-			'index.js',
+      'js/*.js',
+      'index.js',
   		'tests/*.js'
     ],
 
@@ -30,7 +31,7 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'index.js': ['browserify', 'coverage'],
-      'js/*.js' : 'coverage'
+      'js/*.js' : ['browserify', 'coverage']
     },
 
 
