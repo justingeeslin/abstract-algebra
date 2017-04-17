@@ -1,6 +1,6 @@
 // Karma configuration
 // Generated on Tue Feb 02 2016 00:54:15 GMT-0600 (CST)
-
+var istanbul = require('browserify-istanbul');
 module.exports = function(config) {
   config.set({
 
@@ -16,7 +16,6 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'https://code.jquery.com/jquery-3.1.1.min.js',
-      'js/*.js',
       'index.js',
   		'tests/*.js'
     ],
@@ -31,9 +30,14 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'index.js': ['browserify', 'coverage'],
-      'js/*.js' : ['browserify', 'coverage']
     },
 
+    browserify: {
+        debug: true,
+        transform: [
+          istanbul()
+        ]
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
