@@ -5,6 +5,9 @@ describe('Set Theory Extensions', function() {
 
     operation = function(element1, element2) {
       return element1 + element2
+
+    operation2 = function(element1, element2) {
+      return element1 * element2
     }
   })
 
@@ -34,6 +37,10 @@ describe('Set Theory Extensions', function() {
 
   it('should be an abelian group', function() {
     expect(theArray.isAbelianGroup(operation)).toBe(true)
+  })
+
+  it('should be a field', function() {
+    expect(theArray.isField(operation, operation2)).toBe(true)
   })
 
 

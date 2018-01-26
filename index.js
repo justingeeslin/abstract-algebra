@@ -70,3 +70,8 @@ Array.prototype.isGroup = function(operation) {
 Array.prototype.isAbelianGroup = function(operation) {
   return this.isGroup(operation) && this.isCommutative(operation);
 }
+
+Array.prototype.isField = function(operation, operation2) {
+  return (this.isClosed(operation) && this.hasIdentity(operation) && this.isAssociative(operation) && this.hasInverse(operation)) &&
+    (this.isClosed(operation2) && this.hasIdentity(operation2) && this.isAssociative(operation2) && this.hasInverse(operation2))
+}
