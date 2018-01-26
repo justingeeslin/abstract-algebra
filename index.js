@@ -50,6 +50,23 @@ Array.prototype.hasInverse = function(operation) {
   return true;
 }
 
+Array.prototype.isCommutative = function(operation) {
+  for(var i=0;i< this.length;i++) {
+    for(var j=i;j< this.length;j++) {
+        var is = operation(this[i], this[j]) == operation(this[j], this[i])
+        if (!is) {
+          return false;
+        }
+
+    }
+  }
+  return true;
+}
+
 Array.prototype.isGroup = function(operation) {
   return this.isClosed(operation) && this.hasIdentity(operation) && this.isAssociative(operation) && this.hasInverse(operation);
+}
+
+Array.prototype.isAbelianGroup = function(operation) {
+  return this.isGroup(operation) && this.isCommutative(operation);
 }

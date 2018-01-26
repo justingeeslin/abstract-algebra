@@ -28,5 +28,13 @@ describe('Set Theory Extensions', function() {
     expect(theArray.isGroup(operation)).toBe(true)
   })
 
+  it('should be communtative', function() {
+    expect(theArray.isCommutative(operation)).toBe(true)
+  })
+
+  it('should be an abelian group', function() {
+    expect(theArray.isAbelianGroup(operation)).toBe(true)
+  })
+
 
 })
