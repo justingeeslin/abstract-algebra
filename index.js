@@ -1,3 +1,55 @@
-// Create a list of Conversation Segment pairs. [ {key, url, title, timeStart, timeEnd, [{interest, score}]}]
-const Segment = require('./js/Segment.js')
-var myFirstSegment = new Segment();
+Array.prototype.isClosed = function(operation) {
+  for(var i=0;i< this.length;i++) {
+    for(var j=i;j< this.length;j++) {
+      var isInSet = this.includes(operation(this[i],this[j]));
+      if (!isInSet) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+Array.prototype.hasIdentity = function(operation) {
+  for(var i=0;i< this.length;i++) {
+    for(var j=i;j< this.length;j++) {
+      var identityIsInSet = this[i] == operation(this[i],this[j]);
+      if (identityIsInSet) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+Array.prototype.isAssociative = function(operation) {
+  for(var i=0;i< this.length;i++) {
+    for(var j=i;j< this.length;j++) {
+      for(var k=i;k< this.length;k++) {
+        var is = operation(operation(this[i],this[j]), this[k]) == operation(this[i], operation(this[j],this[k]));
+        if (!is) {
+          return false;
+        }
+      }
+    }
+  }
+  return true;
+}
+
+Array.prototype.hasInverse = function(operation) {
+  for(var i=0;i< this.length;i++) {
+    for(var j=i;j< this.length;j++) {
+        var neg = 0 - this[i];
+        var is = neg == operation(this[i], this[j])
+        if (!is) {
+          return false;
+        }
+
+    }
+  }
+  return true;
+}
+
+Array.prototype.isGroup = function(operation) {
+  return this.isClosed(operation) && this.hasIdentity(operation) && this.isAssociative(operation) && this.hasInverse(operation);
+}
