@@ -1,4 +1,4 @@
-describe('Set Theory Extensions', function() {
+describe('Set Theory Properties', function() {
 
   beforeAll(function() {
     theArray = [0];
