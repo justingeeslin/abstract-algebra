@@ -83,3 +83,35 @@ describe('The set of Whole numbers', function() {
   })
 
 });
+
+describe('The set of Rational numbers', function() {
+  it('should be rational when it is 1', function() {
+    var number = 1;
+    var obj = {}
+    expect(number.isRational(obj)).toBe(true)
+    console.log(obj.message)
+  })
+
+  xit('should not contain PI (' + Math.PI + ')', function() {
+    var number = Math.PI;
+    var obj = {}
+    expect(number.isRational(obj)).toBe(false)
+    console.log(obj.message)
+  })
+
+  it('should contain 0.333333333', function() {
+    var number = 0.333333333;
+    var obj = {}
+    expect(number.isRational(obj)).toBe(true)
+    console.log(obj.message)
+  })
+
+  xit('should NOT contain SQRT 2', function() {
+    var number = Math.sqrt(2);
+    var obj = {}
+    expect(number.isRational(obj)).toBe(false)
+    console.log(obj.message)
+  })
+
+
+});

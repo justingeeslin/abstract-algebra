@@ -110,4 +110,20 @@ Number.prototype.isWhole = function() {
   return Number.isInteger(num) && num > -1;
 }
 
+Number.prototype.isRational = function(obj) {
+  var Fraction = require('fractional').Fraction
+  var num = this.valueOf();
+  if (this.isWhole()) {
+    obj.message = this + " is Rational because it is Whole";
+    return true;
+  }
+
+  // To be rational it must have a fraction of integers
+  var frac = new Fraction(num);
+  console.log('Can be written as ' + frac);
+  if (Number.isInteger(frac.numerator) && Number.isInteger(frac.denominator)) {
+    return true;
+  }
+
+  return false;
 }
