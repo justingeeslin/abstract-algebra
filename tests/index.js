@@ -57,3 +57,16 @@ describe('Set Theory Extensions', function() {
 
 
 })
+
+describe('Number classes', function() {
+
+  it('should be natural when it is 1', function() {
+    var number = 1;
+    expect(number.isNatural()).toBe(true)
+  })
+
+  it('should be NOT natural when it is 0', function() {
+    var number = 0;
+    expect(number.isNatural()).toBe(false)
+  })
+})

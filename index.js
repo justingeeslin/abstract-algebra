@@ -99,3 +99,7 @@ Array.prototype.isCommutativeRing = function(operation, operation2) {
 Array.prototype.isField = function(operation, operation2) {
   return this.isAbelianGroup(operation) && this.isAbelianGroup(operation2)
 }
+
+Number.prototype.isNatural = function() {
+  return this > 0;
+}
