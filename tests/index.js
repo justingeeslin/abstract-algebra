@@ -1,4 +1,4 @@
-describe('Set Theory Properties', function() {
+describe('The set of the zero element', function() {
 
   beforeAll(function() {
     theArray = [0];
@@ -20,7 +20,7 @@ describe('Set Theory Properties', function() {
     expect(theArray.hasIdentity(operation)).toBe(true)
   })
 
-  it('should have associativity', function() {
+  it('should be associative', function() {
     expect(theArray.isAssociative(operation)).toBe(true)
   })
 
@@ -70,6 +70,9 @@ describe('The set of Natural numbers', function() {
     var number = 0;
     expect(number.isNatural()).toBe(false)
   })
+
+});
+
 describe('The set of Whole numbers', function() {
 
   it('should contain 0', function() {
