@@ -39,6 +39,10 @@ describe('Set Theory Extensions', function() {
     expect(theArray.isAbelianGroup(operation)).toBe(true)
   })
 
+  it('should be a ring', function() {
+    expect(theArray.isRing(operation, operation2)).toBe(true)
+  })
+
   it('should be a commutative ring', function() {
     expect(theArray.isCommutativeRing(operation, operation2)).toBe(true)
   })
