@@ -71,7 +71,21 @@ Array.prototype.isAbelianGroup = function(operation) {
   return this.isGroup(operation) && this.isCommutative(operation);
 }
 
-Array.prototype.isField = function(operation, operation2) {
+Array.prototype.isDistributive = function(operation, operation2) {
+  for(var i=0;i< this.length;i++) {
+    for(var j=i;j< this.length;j++) {
+      for(var k=i;k< this.length;k++) {
+        var is = operation2(this[i], operation(this[j],this[k])) == operation(operation2(this[i], this[j]), operation2(this[i], this[k]));
+        var is2 = operation2(operation(this[i],this[j]), this[k]) == operation(operation2(this[i], this[k]), operation2(this[j], this[k]))
+        if (!(is && is2)) {
+          return false;
+        }
+      }
+    }
+  }
+  return true;
+}
+
 Array.prototype.isRing = function(operation, operation2) {
   return (this.isClosed(operation) && this.hasIdentity(operation) && this.isAssociative(operation) && this.hasInverse(operation)) &&
     (this.isClosed(operation2) && this.isAssociative(operation2))

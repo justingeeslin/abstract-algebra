@@ -39,6 +39,10 @@ describe('Set Theory Extensions', function() {
     expect(theArray.isAbelianGroup(operation)).toBe(true)
   })
 
+  it('should be distributive', function() {
+    expect(theArray.isDistributive(operation, operation2)).toBe(true)
+  })
+
   it('should be a ring', function() {
     expect(theArray.isRing(operation, operation2)).toBe(true)
   })
