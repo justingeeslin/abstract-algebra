@@ -4,7 +4,8 @@ describe('Set Theory Properties', function() {
     theArray = [0];
 
     operation = function(element1, element2) {
-      return element1 + element2
+      return (element1 + element2) % 6
+    }
 
     operation2 = function(element1, element2) {
       return element1 * element2
