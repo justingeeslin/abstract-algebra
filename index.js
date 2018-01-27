@@ -104,4 +104,10 @@ Number.prototype.isNatural = function() {
   var num = this.valueOf()
   return Number.isInteger(num) && num > 0;
 }
+
+Number.prototype.isWhole = function() {
+  var num = this.valueOf()
+  return Number.isInteger(num) && num > -1;
+}
+
 }

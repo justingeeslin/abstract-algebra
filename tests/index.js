@@ -70,3 +70,16 @@ describe('The set of Natural numbers', function() {
     var number = 0;
     expect(number.isNatural()).toBe(false)
   })
+describe('The set of Whole numbers', function() {
+
+  it('should contain 0', function() {
+    var number = 0;
+    expect(number.isWhole()).toBe(true)
+  })
+
+  it('should NOT contain -1', function() {
+    var number = -1;
+    expect(number.isWhole()).toBe(false)
+  })
+
+});
