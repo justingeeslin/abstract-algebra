@@ -9,7 +9,8 @@
   "author": "Justin Geeslin",
   "license": "ISC",
   "dependencies": {
-    "extend": "git+https://github.com/justingeeslin/extend.git"
+    "extend": "git+https://github.com/justingeeslin/extend.git",
+    "fractional": "^1.0.0"
   },
   "devDependencies": {
     "browserify": "^14.1.0",
