@@ -101,5 +101,7 @@ Array.prototype.isField = function(operation, operation2) {
 }
 
 Number.prototype.isNatural = function() {
-  return this > 0;
+  var num = this.valueOf()
+  return Number.isInteger(num) && num > 0;
+}
 }

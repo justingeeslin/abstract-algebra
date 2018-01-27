@@ -59,15 +59,14 @@ describe('Set Theory Properties', function() {
 
 })
 
-describe('Number classes', function() {
+describe('The set of Natural numbers', function() {
 
-  it('should be natural when it is 1', function() {
+  it('should contain 1', function() {
     var number = 1;
     expect(number.isNatural()).toBe(true)
   })
 
-  it('should be NOT natural when it is 0', function() {
+  it('should NOT contain 0', function() {
     var number = 0;
     expect(number.isNatural()).toBe(false)
   })
-})
