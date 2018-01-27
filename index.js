@@ -37,17 +37,28 @@ Array.prototype.isAssociative = function(operation) {
 }
 
 Array.prototype.hasInverse = function(operation) {
+  // Find an inverse for ever element
+  var inverses = []
   for(var i=0;i< this.length;i++) {
-    for(var j=i;j< this.length;j++) {
-        var neg = 0 - this[i];
-        var is = neg == operation(this[i], this[j])
-        if (!is) {
-          return false;
+    for(var j=0;j< this.length;j++) {
+        var is = 0 == operation(this[i], this[j])
+        // console.log(this[i] + " + " + this[j])
+        if (is) {
+          // console.log(this[j] + ' is the inverse of ' + this[i])
+          inverses.push(this[j]);
+          // You've found the inverse for i; on to the next element
+          break;
         }
-
     }
   }
-  return true;
+
+  // If you have an inverse for every element, the inverse property is satisfied
+  if (inverses.length == this.length) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 Array.prototype.isCommutative = function(operation) {
