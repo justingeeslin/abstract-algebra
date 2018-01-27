@@ -96,4 +96,6 @@ Array.prototype.isCommutativeRing = function(operation, operation2) {
     (this.isClosed(operation2) && this.isAssociative(operation2) && this.isCommutative(operation2))
 }
 
+Array.prototype.isField = function(operation, operation2) {
+  return this.isAbelianGroup(operation) && this.isAbelianGroup(operation2)
 }
