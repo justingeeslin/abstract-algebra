@@ -122,6 +122,7 @@ Number.prototype.isWhole = function() {
 }
 
 Number.prototype.isRational = function(obj) {
+  obj = typeof obj !== "undefined" ? obj : {message: ''};
   var Fraction = require('fractional').Fraction
   var num = this.valueOf();
   if (this.isWhole()) {
