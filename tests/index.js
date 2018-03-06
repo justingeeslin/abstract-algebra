@@ -150,3 +150,11 @@ describe('The set of Rational numbers', function() {
 
 
 });
+
+describe('The set of Algebraic numbers', function() {
+  it('should include integers', function() {
+    var number = 1;
+    var obj = {}
+    expect(number.isAlgebraic(obj)).toBe(true)
+  })
+})

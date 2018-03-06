@@ -139,3 +139,12 @@ Number.prototype.isRational = function(obj) {
 
   return false;
 }
+
+Number.prototype.isAlgebraic = function() {
+  // A number is algebraic if it is an integer or is rational.
+  if (this.isRational()) {
+    return true;
+  }
+
+
+}
