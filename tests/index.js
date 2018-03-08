@@ -134,6 +134,7 @@ describe('The set of Rational numbers', function() {
     console.log(obj.message)
   })
 
+  // Should be rational because it repeats
   it('should contain 0.333333333', function() {
     var number = 0.333333333;
     var obj = {}
