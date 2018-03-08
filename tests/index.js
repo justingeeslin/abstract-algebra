@@ -127,7 +127,7 @@ describe('The set of Rational numbers', function() {
     console.log(obj.message)
   })
 
-  xit('should not contain PI (' + Math.PI + ')', function() {
+  it('should not contain PI (' + Math.PI + ')', function() {
     var number = Math.PI;
     var obj = {}
     expect(number.isRational(obj)).toBe(false)
@@ -141,7 +141,7 @@ describe('The set of Rational numbers', function() {
     console.log(obj.message)
   })
 
-  xit('should NOT contain SQRT 2', function() {
+  it('should NOT contain SQRT 2', function() {
     var number = Math.sqrt(2);
     var obj = {}
     expect(number.isRational(obj)).toBe(false)

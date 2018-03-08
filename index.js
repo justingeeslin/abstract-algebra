@@ -132,10 +132,15 @@ Number.prototype.isRational = function(obj) {
 
   // To be rational it must have a fraction of integers
   var frac = new Fraction(num);
-  //TODO Make this better. The lack of precision in JS makes finding a fraction of a float number too easy. Ex. Pi with little precision say 15 decimal places can still be a fraction of integers and thus be returned as rational when it is not.
-  console.log('Can be written as ' + frac);
-  if (Number.isInteger(frac.numerator) && Number.isInteger(frac.denominator)) {
-    return true;
+  if (frac.numerator / frac.denominator === num) {
+    if (Number.isInteger(frac.numerator) && Number.isInteger(frac.denominator)) {
+      console.log(num + ' can be written as ', frac);
+      return true;
+    }
+  }
+  else {
+    console.log(num + ' can almost be written as ', frac);
+    console.log('but this only equals ', frac.numerator / frac.denominator);
   }
 
   return false;
