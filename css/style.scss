@@ -11,6 +11,8 @@ body {
   background-color: #F3FFD9;
 }
 
+
+
 // The random quote about numbers
 aside {
   background-color: black;
@@ -25,6 +27,11 @@ aside, footer {
 footer {
   background-color: #787878;
   color:#ccc;
+
+  a {
+    color:white;
+    text-decoration:none;
+  }
 }
 
 // Center lots of main content things.
