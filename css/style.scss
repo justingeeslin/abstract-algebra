@@ -1,4 +1,63 @@
+/* Styles for the docs */
+
 html, body {
   margin:0;
   padding:0;
+  font-family: sans-serif;
+}
+
+body {
+  // Taken from MathWorld; its a nice, polite shade
+  background-color: #F3FFD9;
+}
+
+// The random quote about numbers
+aside {
+  background-color: black;
+  color:gray;
+  width:100%;
+}
+
+aside, footer {
+  padding:0.5em;
+}
+
+footer {
+  background-color: #787878;
+  color:#ccc;
+}
+
+// Center lots of main content things.
+header, main {
+  margin: 0 auto;
+  max-width: 65vw;
+}
+
+header {
+  height: 25vh;
+
+}
+
+main {
+
+}
+
+form {
+  input {
+    font-size:4em;
+    padding: 0.5em;
+    width:100%;
+  }
+}
+
+div.answer {
+
+  // Answer bubbles
+  & > div {
+    box-sizing: border-box;
+    padding:0.5em;
+    margin: 0.5em 0;
+    min-height:5em;
+    background-color: white;
+  }
 }

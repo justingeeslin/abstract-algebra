@@ -18,7 +18,9 @@ gulp.task('js', function () {
     .pipe(source('app.js'))
     .pipe(buffer())
     .on('error', gutil.log)
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./dist/'))
+    // Put a copy in docs.
+    .pipe(gulp.dest('./docs/'));
 });
 
 gulp.task('css', function () {
@@ -29,7 +31,9 @@ gulp.task('css', function () {
     .pipe(rename(function(path) {
 			path.extname = '.css';
 		}))
-		.pipe(gulp.dest('dist/'));
+		.pipe(gulp.dest('dist/'))
+    // Put a copy in docs.
+    .pipe(gulp.dest('docs/'));
 });
 
 gulp.task('servers', gulp.shell.task([
