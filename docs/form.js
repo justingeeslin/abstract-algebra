@@ -7,13 +7,25 @@ $(document).ready(function() {
     console.log('calculating..')
     answerBox.find('.answer-box').empty();
 
-    answerBox.find('.n .answer-box').append(x.isNatural() ? 'Is a Natural number' : 'Is not a Natural number')
-    // Is integer?
-    answerBox.find('.z .answer-box').append(x.isInteger() ? 'Is an Integer' : 'Is not an Integer')
+    var answerTestMap = {
+      'n' : 'isNatural',
+      'z' : 'isInteger',
+      'q' : 'isRational',
+      'r-bar' : 'isAlgebraic'
+    }
 
-    // Give a more detailed explanation
-    answerBox.find('.q .answer-box').append(x.isRational() ? 'Is Rational' : 'Is not Rational (Irrational)')
-    answerBox.find('.r-bar .answer-box').append(x.isAlgebraic() ? 'Is ' : 'Is not ')
+    for( var prop in answerTestMap ) {
+      // Give a more detailed explanation
+      var details = {};
+      if (answerTestMap.hasOwnProperty(prop)) {
+        answerBox.find('.' + prop + ' .answer-box').append(x[answerTestMap[prop]](details) ? 'Is' : 'Is not')
+
+        if (typeof details.message !== "undefined") {
+          answerBox.find('.' + prop + ' .answer-box').append('<p>' + details.message + '</p>')
+        }
+      }
+    }
+
   }
 
   theInput.on('input', function() {

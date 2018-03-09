@@ -111,9 +111,26 @@ Array.prototype.isField = function(operation, operation2) {
   return this.isAbelianGroup(operation) && this.isAbelianGroup(operation2)
 }
 
-Number.prototype.isNatural = function() {
+Number.prototype.isNatural = function(obj) {
   var num = this.valueOf()
-  return Number.isInteger(num) && num > 0;
+  obj = typeof obj !== "undefined" ? obj : {};
+  if (Number.isInteger(num)) {
+    if (num > 0) {
+      obj.message = num + ' is Natural because it is an Integer and greater than zero.'
+      return true;
+    }
+    else {
+      obj.message = num + ' is not Natural because while it is an Integer, it is not greater than zero.'
+    }
+
+  }
+  else {
+    obj.message = num + ' is not an Integer. To be natural, must be both an Integer and greater than zero.'
+    return false;
+  }
+
+  return ;
+
 }
 
 Number.prototype.isWhole = function() {
@@ -122,8 +139,18 @@ Number.prototype.isWhole = function() {
 }
 
 // Maybe this is a bad idea?
-Number.prototype.isInteger = function() {
-  return Number.isInteger(this.valueOf())
+Number.prototype.isInteger = function(obj) {
+  var num = this.valueOf()
+  if (Number.isInteger(num)) {
+    obj.message = num + " is an Integer because it can be written without a fractional component (<a href=\"https://en.wikipedia.org/wiki/Integer\">source</a>)."
+    return true;
+  }
+  else {
+    obj.message = num + " is not an Integer."
+    return false;
+  }
+
+
 };
 
 Number.prototype.isRational = function(obj) {
@@ -139,13 +166,12 @@ Number.prototype.isRational = function(obj) {
   var frac = new Fraction(num);
   if (frac.numerator / frac.denominator === num) {
     if (Number.isInteger(frac.numerator) && Number.isInteger(frac.denominator)) {
-      // console.log(num + ' can be written as ', frac);
+      obj.message = this + " is Rational because it can be written as a fraction of integers. " + frac.numerator + '/' + frac.denominator;
       return true;
     }
   }
   else {
-    console.log(num + ' can almost be written as ', frac);
-    console.log('but this only equals ', frac.numerator / frac.denominator);
+    obj.message = this + " is Irrational because it cannot be written as a fraction of integers. " + frac.numerator + '/' + frac.denominator + " is close but this only equals " + frac.numerator / frac.denominator;
   }
 
   return false;
