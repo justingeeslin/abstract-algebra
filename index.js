@@ -121,7 +121,10 @@ Number.prototype.isWhole = function() {
   return Number.isInteger(num) && num > -1;
 }
 
-// is Integer already defined. Computers are good at detecting if a number is an integer.
+// Maybe this is a bad idea?
+Number.prototype.isInteger = function() {
+  return Number.isInteger(this.valueOf())
+};
 
 Number.prototype.isRational = function(obj) {
   obj = typeof obj !== "undefined" ? obj : {message: ''};
@@ -136,7 +139,7 @@ Number.prototype.isRational = function(obj) {
   var frac = new Fraction(num);
   if (frac.numerator / frac.denominator === num) {
     if (Number.isInteger(frac.numerator) && Number.isInteger(frac.denominator)) {
-      console.log(num + ' can be written as ', frac);
+      // console.log(num + ' can be written as ', frac);
       return true;
     }
   }

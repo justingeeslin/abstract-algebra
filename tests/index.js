@@ -119,6 +119,20 @@ describe('The set of Whole numbers', function() {
 
 });
 
+describe('The set of Integers', function() {
+
+  it('should contain 0', function() {
+    var number = 0;
+    expect(number.isInteger()).toBe(true)
+  })
+
+  it('should contain -1', function() {
+    var number = -1;
+    expect(number.isInteger()).toBe(true)
+  })
+
+});
+
 describe('The set of Rational numbers', function() {
   it('should be rational when it is 1', function() {
     var number = 1;
