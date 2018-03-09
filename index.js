@@ -121,6 +121,8 @@ Number.prototype.isWhole = function() {
   return Number.isInteger(num) && num > -1;
 }
 
+// is Integer already defined. Computers are good at detecting if a number is an integer.
+
 Number.prototype.isRational = function(obj) {
   obj = typeof obj !== "undefined" ? obj : {message: ''};
   var Fraction = require('fractional').Fraction
