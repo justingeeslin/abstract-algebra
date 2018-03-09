@@ -153,9 +153,24 @@ describe('The set of Rational numbers', function() {
 });
 
 describe('The set of Algebraic numbers', function() {
-  it('should include integers', function() {
+  it('should include N (natural) numbers', function() {
     var number = 1;
     var obj = {}
     expect(number.isAlgebraic(obj)).toBe(true)
   })
+
+  it('should NOT include PI', function() {
+    var number = Math.PI;
+    var obj = {}
+    expect(number.isAlgebraic(obj)).not.toBe(true)
+  })
+
+  it('should contain SQRT 2', function() {
+    var number = Math.sqrt(2);
+    var obj = {}
+    expect(number.isAlgebraic(obj)).toBe(true)
+    console.log(obj.message)
+  })
+
+
 })

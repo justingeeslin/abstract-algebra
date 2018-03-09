@@ -147,10 +147,38 @@ Number.prototype.isRational = function(obj) {
 }
 
 Number.prototype.isAlgebraic = function() {
-  // A number is algebraic if it is an integer or is rational.
+  // A number is algebraic if it is rational.
   if (this.isRational()) {
     return true;
   }
+  // but an irrational number may or may not be algebraic
+  var num = this.valueOf();
+  console.log('THis is the number', num)
+
+  // Search for a polynomial x^n + a_n. Let a be no higher or lower than the number.
+  for(var n = 1;n<=4;n++) {
+    // Start with the negative version of the number and go up to the number
+    for( var a = Math.ceil(Math.abs(num)) * -1; a<= num; a++) {
+      var p = 'Math.pow(x, ' + n + ') + ' + a;
+      var x = num;
+      // A algebraic number is  a value which causes the polynomial to equal 0.
+      console.log('Let x = ' + num + ' for ', p);
+      var ans = eval(p);
+      // Bound answer to 4 decimal points. When doing lots of rooting sometimes very small fractions are left over again because of rounding and the lack of precision
+      ans = ans.toFixed(4)
+      if (ans==0) {
+        return true;
+      }
+      else {
+        console.log('It does not yield zero. Yielded: ' + ans + '. ' + num + ' is not a root for this polynomial. Maybe I\'ll try another..')
+      }
+    }
+
+  }
+
+  return x.isRational();
+
+}
 
 
 }
