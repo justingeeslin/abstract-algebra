@@ -18,22 +18,33 @@ aside, footer {
 footer {
   background-color: #787878;
   color: #ccc; }
+  footer a {
+    color: white;
+    text-decoration: none; }
 
 header, main {
   margin: 0 auto;
   max-width: 65vw; }
 
+@media screen and (max-width: 992px) {
+  header, main {
+    max-width: inherit; } }
+
 header {
-  height: 25vh; }
+  height: 15vh; }
 
 form input {
   font-size: 4em;
   padding: 0.5em;
+  box-sizing: border-box;
   width: 100%; }
 
-div.answer > div {
-  box-sizing: border-box;
-  padding: 0.5em;
-  margin: 0.5em 0;
-  min-height: 5em;
-  background-color: white; }
+div.answer {
+  width: 100%; }
+  div.answer > div {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    min-height: 5em;
+    background-color: white; }
