@@ -182,5 +182,9 @@ Number.prototype.isAlgebraic = function() {
 
 }
 
+Number.prototype.isTranscendental = function(obj) {
+  // A real number that is not Algebraic. Is it this simple?
+  return !this.isAlgebraic();
+}
 
 }
