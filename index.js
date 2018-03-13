@@ -113,7 +113,7 @@ Array.prototype.isField = function(operation, operation2) {
 
 Number.prototype.isNatural = function(obj) {
   var num = this.valueOf()
-  obj = typeof obj !== "undefined" ? obj : {};
+  obj = typeof obj !== "undefined" ? obj : { message: ''};
   if (Number.isInteger(num)) {
     if (num > 0) {
       obj.message = num + ' is Natural because it is an Integer and greater than zero.'
@@ -141,6 +141,7 @@ Number.prototype.isWhole = function() {
 
 // Maybe this is a bad idea?
 Number.prototype.isInteger = function(obj) {
+  obj = typeof obj !== "undefined" ? obj : { message: ''};
   var num = this.valueOf()
   if (Number.isInteger(num)) {
     obj.message = num + " is an Integer because it can be written without a fractional component (<a href=\"https://en.wikipedia.org/wiki/Integer\">source</a>)."
