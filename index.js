@@ -121,6 +121,7 @@ Number.prototype.isNatural = function(obj) {
     }
     else {
       obj.message = num + ' is not Natural because while it is an Integer, it is not greater than zero.'
+      return false;
     }
 
   }
