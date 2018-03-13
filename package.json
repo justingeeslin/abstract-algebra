@@ -10,7 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "extend": "git+https://github.com/justingeeslin/extend.git",
-    "fractional": "^1.0.0"
+    "fractional": "^1.0.0",
+    "mathjs": "^4.0.0",
+    "mathjs-simple-integral": "^0.1.1"
   },
   "devDependencies": {
     "browserify": "^14.1.0",

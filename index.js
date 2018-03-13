@@ -217,3 +217,39 @@ Number.prototype.isTranscendental = function(obj) {
   // A real number that is not Algebraic. Is it this simple?
   return !this.isAlgebraic();
 }
+
+// i.e. can I express this number as an integral. (beta; I may be way off base on this one.)
+Number.prototype.isPeriod = function(obj) {
+  var math = require('mathjs');
+  math.import(require('mathjs-simple-integral'));
+  obj = typeof obj !== "undefined" ? obj : { message: ''};
+
+  var num = this.valueOf()
+  var integral = math.integral(num, 'x').toString()
+
+  var doDefiniteIntegral = function(integral, a, b) {
+    var intgrl = math.parse(integral);
+    var maxDI = intgrl.eval({x: b})
+    // console.log('Let x be ' + b + ":", maxDI);
+
+    var minDI = intgrl.eval({x: a})
+    // console.log('Let x be ' + a + ":", minDI);
+
+    volume = maxDI - minDI;
+    // console.log(maxDI + ' - ' + minDI + " = " + volume);
+
+    return volume;
+  }
+  var v = doDefiniteIntegral(integral, 0, 1);
+
+  if (typeof v === "number" && isFinite(v)) {
+    obj.message = "Is a Period because it can be expressed as an integral: ∫ " + num + ' dx from 0 to 1';
+    return true;
+  }
+  else {
+    obj.message = "Is not Period because it cannot be expressed as an integral. Tried: ∫ " + num + ' dx from 0 to 1';
+    return false;
+  }
+
+
+}

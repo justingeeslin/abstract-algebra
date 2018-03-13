@@ -188,3 +188,44 @@ describe('The set of Algebraic numbers', function() {
 
 
 })
+
+describe('The set of Period numbers (somewhere between Alegbraic and Trancendental)', function() {
+  it('should include sqrt(2)', function() {
+    var number = Math.pow(2, 0.5);
+    var obj = {}
+    expect(number.isPeriod(obj)).toBe(true)
+    console.log(obj.message)
+  })
+
+  it('should include Pi', function() {
+    var number = Math.PI;
+    var obj = {}
+    expect(number.isPeriod(obj)).toBe(true)
+    console.log(obj.message)
+  })
+
+  it('should maybe include e', function() {
+    var number = Math.E;
+    var obj = {}
+    expect(number.isPeriod(obj)).toBe(true)
+    console.log(obj.message)
+  })
+
+  it('should include log(2)', function() {
+    var number = Math.log(2);
+    var obj = {}
+    expect(number.isPeriod(obj)).toBe(true)
+    console.log(obj.message)
+  })
+
+  it('should not include i', function() {
+    // var math = require('mathjs');
+
+    // var number = math.complex('2 + 3i');
+    var number = Math.pow(-1, 0.5)
+    var obj = {}
+    // console.log(typeof number)
+    expect(number.isPeriod(obj)).not.toBe(true)
+    console.log(obj.message)
+  })
+})
