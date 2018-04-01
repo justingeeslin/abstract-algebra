@@ -179,14 +179,15 @@ Number.prototype.isRational = function(obj) {
   return false;
 }
 
-Number.prototype.isAlgebraic = function() {
+Number.prototype.isAlgebraic = function(obj) {
+  obj = typeof obj !== "undefined" ? obj : {message: ''};
   // A number is algebraic if it is rational.
   if (this.isRational()) {
+    obj.message = this + " is Algebraic because it is Rational";
     return true;
   }
   // but an irrational number may or may not be algebraic
   var num = this.valueOf();
-  console.log('THis is the number', num)
 
   // Search for a polynomial x^n + a_n. Let a be no higher or lower than the number.
   for(var n = 1;n<=4;n++) {
@@ -194,7 +195,7 @@ Number.prototype.isAlgebraic = function() {
     for( var a = Math.ceil(Math.abs(num)) * -1; a<= num; a++) {
       var p = 'Math.pow(x, ' + n + ') + ' + a;
       var x = num;
-      // A algebraic number is  a value which causes the polynomial to equal 0.
+      // A algebraic number is a value which causes the polynomial to equal 0.
       console.log('Let x = ' + num + ' for ', p);
       var ans = eval(p);
       // Bound answer to 4 decimal points. When doing lots of rooting sometimes very small fractions are left over again because of rounding and the lack of precision
@@ -203,7 +204,7 @@ Number.prototype.isAlgebraic = function() {
         return true;
       }
       else {
-        console.log('It does not yield zero. Yielded: ' + ans + '. ' + num + ' is not a root for this polynomial. Maybe I\'ll try another..')
+        obj.message = 'A algebraic number is a number which causes a polynomial to equal 0. It does not yield zero. Yielded: ' + ans + '. ' + num + ' is not a root for this polynomial.')
       }
     }
 
