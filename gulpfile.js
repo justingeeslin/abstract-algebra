@@ -37,7 +37,7 @@ gulp.task('css', function () {
 });
 
 gulp.task('servers', gulp.shell.task([
-    'php -S 0.0.0.0:9081'
+    'php -S 0.0.0.0:9081 --docroot docs/'
 ]))
 
 gulp.task('watch', function() {
